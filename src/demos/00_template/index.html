@@ -1,23 +1,45 @@
-<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>React - Template</title>
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
     <script src="../../js/react.min.js"></script>
     <script src="../../js/react-dom.min.js"></script>
     <script src="../../js/browser.min.js"></script>
 </head>
-<body>
 
+<body>
+    <div id="props"></div>
     <div id="container"></div>
+
+    <div id="example">
+    </div>
+
 
     <script type="text/babel">
         ReactDOM.render(
-            <h2>Welcome to React!</h2>,
-            document.getElementById('container')
-        );
+        <h1>hello</h1>,document.getElementById('example'));
+    </script>
+    <script type="text/babel">
+
+        const Com = React.createClass({ edit:function(){ console.log("edite happening"); }, delete:function(){ alert("delete happen ") }, render:function() { return(
+        <div className="commentContainer">
+            <div className="commentText">{this.props.children}</div>
+            <p>{this.props.name}</p>
+            <button onClick={this.edit} className="button-primary">Edit </button>
+            <button onClick={this.delete} className="button-danger">Delete</button>
+
+        </div>); } }); ReactDOM.render(
+        <div className="board">
+            <Com name="satej"> satej sarker</Com>
+            <Com name="samir"> samir sarker</Com>
+            <Com name="priyanka">priyanka</Com>
+            <Com name="amr bow">Bow</Com>
+        </div>, document.getElementById('container') );
     </script>
 
 </body>
+
 </html>
